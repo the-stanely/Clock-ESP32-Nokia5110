@@ -20,3 +20,7 @@ Required libraries:
 pcd8544_fb.py (https://github.com/mcauser/micropython-pcd8544/blob/master/pcd8544_fb.py)
 
 writer.py (https://github.com/peterhinch/micropython-font-to-py/blob/master/writer/writer.py)
+
+arialn11.py (here)
+
+marrada30.py (here)
