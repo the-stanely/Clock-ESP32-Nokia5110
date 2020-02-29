@@ -77,7 +77,7 @@ while True:
         else:
             am_pm = ' AM'
 
-    now_time = "%2d:%2.2d:%2.2d" % (now4, now[5], now[6])
+    now_time = "%2d:%2.2d:%2.2d " % (now4, now[5], now[6])
 
     Writer.set_textpos(ssd, 0, 0)  # Position at upper left corner.
     wri_bcf.printstring(now_time)
