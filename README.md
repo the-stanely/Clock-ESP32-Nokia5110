@@ -14,3 +14,9 @@ not used --> Pin(19)  # GPIO19 is Terminal pin 10, labeled D19, not used. SPI MA
 5110 RST --> Pin(21)   # GPIO21 is Terminal pin 11, labeled D21.  RESET
 
 5110 BL --> Pin(17, Pin.OUT, value=1)  # GPIO17 is Terminal pin 7, labeled TX2.  BACKLIGHT
+
+Required libraries:
+
+pcd8544_fb.py ([url]https://github.com/mcauser/micropython-pcd8544/blob/master/pcd8544_fb.py[/url])
+
+writer.py ([url]https://github.com/peterhinch/micropython-font-to-py/blob/master/writer/writer.py[/url])
