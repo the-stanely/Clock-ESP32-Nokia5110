@@ -23,4 +23,4 @@ writer.py (https://github.com/peterhinch/micropython-font-to-py/blob/master/writ
 
 arialn11.py (here)
 
-marrada30.py (here)
+marrada30.py (here, only includes the following characters, ' 0123456789:.' for the clock.)
