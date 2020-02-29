@@ -67,9 +67,9 @@ while True:
     now_date = '%2.2d/%2.2d/%2.2d' % (now[1], now[2], now[0])
     now_day_date = now_day + '. ' + now_date
 
+    now4 = now[4]
     if clockmode == 24:
         am_pm = ''
-        now4 = now[4]
     else:
         if now[4] >= 12:
             am_pm = ' PM'
