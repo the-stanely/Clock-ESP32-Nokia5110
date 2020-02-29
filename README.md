@@ -1,21 +1,16 @@
 # Clock-ESP32-Nokia5110
-Simple clock for ESP32 &amp; Nokia 5110 written in MicroPython.
-Using ESP32 DEVKIT.  Pinouts used are:
+Simple clock for ESP32 &amp; Nokia 5110 written in MicroPython.  Using ESP32 DEVKIT.  Pinouts used are:
 
-Set up SPI 2 for hardware transfers.
+5110 CLK --> Pin(18)   # GPIO18 is Terminal pin 9 (labeled D18.  SPI CLOCK
 
-spi = SPI(2, baudrate=4000000, polarity=0, phase=0, bits=8, firstbit=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
+not used --> Pin(19)  # GPIO19 is Terminal pin 10, labeled D19, not used. SPI MASTER IN, SLAVE OUT
 
-sck = Pin(18)   # GPIO18 is Terminal pin 9 (labeled D18)
+5110 DIN --> Pin(23)  # GPIO23 is Terminal pin 15, labeled D23.  SPI MASTER OUT, SLAVE IN
 
-MISO = Pin(19)  # GPIO19 is Terminal pin 10 (labeled D19) not used
+5110 CE --> Pin(16)    # GPIO16 is Terminal pin 6, labeled RX2.  CHIP ENABLE (CHIP SELECT)
 
-MOSI = Pin(23)  # GPIO23 is Terminal pin 15 (labeled D23)
+5110 D/C --> Pin(5)     # GPIO05 is Terminal pin 8, labeled D5.  DATA / COMMAND
 
-cs = Pin(16)    # GPIO16 is Terminal pin 6 (labeled RX2)
+5110 RST --> Pin(21)   # GPIO21 is Terminal pin 11, labeled D21.  RESET
 
-dc = Pin(5)     # GPIO05 is Terminal pin 8 (labeled D5)
-
-rst = Pin(21)   # GPIO21 is Terminal pin 11 (labeled D21)
-
-bl = Pin(17, Pin.OUT, value=1)  # GPIO17 is Terminal pin 7 (labeled TX2)
+5110 BL --> Pin(17, Pin.OUT, value=1)  # GPIO17 is Terminal pin 7, labeled TX2.  BACKLIGHT
