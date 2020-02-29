@@ -1,26 +1,28 @@
 # Clock-ESP32-Nokia5110
-Simple clock for ESP32 &amp; Nokia 5110 written in MicroPython.  Using ESP32 DEVKIT.  Pinouts used are:
 
-5110 CLK --> Pin(18)   # GPIO18 is Terminal pin 9 (labeled D18.  SPI CLOCK
+![clock](ClockESP32Nokia5110-1.JPG)
 
-not used --> Pin(19)  # GPIO19 is Terminal pin 10, labeled D19, not used. SPI MASTER IN, SLAVE OUT
+Simple clock for ESP32 &amp; Nokia 5110 written in MicroPython.  Using ESP32 DEVKIT.
+#### Pinouts used are:
 
-5110 DIN --> Pin(23)  # GPIO23 is Terminal pin 15, labeled D23.  SPI MASTER OUT, SLAVE IN
+5110<br>Pin | 5110<br>Signal | Description     | ESP32 DEVKIT<br>GPIO | ESP32 DEVKIT<br>Label | ESP32 DEVKIT<br>Pin
+:-------:|:-----------------:|:---------------:|:--------------------:|:---------------------:|:-------------------:
+5        | CLK               | SPI CLOCK       | 18                   | D18                   | 9
+n/a      | n/a               | MISO            | 19                   | D19                   | 10
+4        | DIN               | MOSI            | 23                   | D23                   | 15
+2        | CE                | Chip Enable/Sel | 16                   | RX2                   | 6
+3        | D/C               | Data / Command  | 05                   | D5                    | 8
+1        | RST               | Reset           | 21                   | D21                   | 11
+7        | BL                | Backlight       | 17                   | TX2                   | 7
 
-5110 CE --> Pin(16)    # GPIO16 is Terminal pin 6, labeled RX2.  CHIP ENABLE (CHIP SELECT)
-
-5110 D/C --> Pin(5)     # GPIO05 is Terminal pin 8, labeled D5.  DATA / COMMAND
-
-5110 RST --> Pin(21)   # GPIO21 is Terminal pin 11, labeled D21.  RESET
-
-5110 BL --> Pin(17, Pin.OUT, value=1)  # GPIO17 is Terminal pin 7, labeled TX2.  BACKLIGHT
-
-Required libraries:
+#### Required libraries:
 
 pcd8544_fb.py (https://github.com/mcauser/micropython-pcd8544/blob/master/pcd8544_fb.py)
 
 writer.py (https://github.com/peterhinch/micropython-font-to-py/blob/master/writer/writer.py)
 
-arialn11.py (here)
+arialn11.py (https://github.com/the-stanely/Clock-ESP32-Nokia5110/blob/master/arialn11.py)
 
-marrada30.py (here, only includes the following characters, ' 0123456789:.' for the clock.)
+marrada30.py (https://github.com/the-stanely/Clock-ESP32-Nokia5110/blob/master/marrada30.py).  This font file only includes characters ' 0123456789:.' for the clock.
+
+![clock](ClockESP32Nokia5110-2.JPG)
