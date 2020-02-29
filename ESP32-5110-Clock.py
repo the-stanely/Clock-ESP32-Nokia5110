@@ -71,9 +71,11 @@ while True:
     if clockmode == 24:
         am_pm = ''
     else:
-        if now[4] >= 12:
+        if now[4] >= 13:
             am_pm = ' PM'
             now4 = now[4] - 12
+        elif now[4] == 0:
+            now4 = 12
         else:
             am_pm = ' AM'
 
