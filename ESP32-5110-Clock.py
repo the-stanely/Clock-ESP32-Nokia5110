@@ -27,6 +27,8 @@ bl = Pin(17, Pin.OUT, value=1)
 
 # Constants
 DAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+scr_wd = 84     # Nokia 5110 width
+scr_ht = 48     # Nokia 5110 height
 
 # Check for network connection & exit if none.
 if not station.isconnected():
@@ -55,6 +57,22 @@ wri_bcf.set_clip(True, True, False)             # Clip is on
 wri_s = Writer(ssd, small, verbose=False)       # Small font line 2.
 wri_s.set_clip(True, True, False)               # Clip is on
 
+
+# Create blank strings to erase display lines to eol.
+bcf_blank_wd = wri_bcf._charlen(' ')    # Width of a big font blank
+px_to_eol = bcf_blank_wd                # Create big blanks to clear to eol 1.
+bcf_clr_eol = ' '
+while px_to_eol < scr_wd:
+	bcf_clr_eol += ' '
+	px_to_eol += bcf_blank_wd
+
+s_blank_wd = wri_s._charlen(' ')        # Width of a small font blank
+px_to_eol = s_blank_wd                  # Create small blanks to clear to eol 2.
+s_clr_eol = ' '
+while px_to_eol < scr_wd:
+	s_clr_eol += ' '
+	px_to_eol += s_blank_wd
+
 if clockmode == 24:
     l2start = 10
 else:
@@ -72,18 +90,23 @@ while True:
         am_pm = ''
     else:
         if now[4] >= 13:
-            am_pm = ' PM'
+            am_pm = '  PM'
             now4 = now[4] - 12
         elif now[4] == 0:
             now4 = 12
         else:
-            am_pm = ' AM'
+            am_pm = '  AM'
 
-    now_time = "%2d:%2.2d:%2.2d " % (now4, now[5], now[6])
+    now_time = "%2d:%2.2d:%2.2d" % (now4, now[5], now[6])
 
-    Writer.set_textpos(ssd, 0, 0)  # Position at upper left corner.
+    wri_bcf.set_textpos(ssd, 0, 0)          # Clear line 1 to eol.
+    wri_bcf.printstring(bcf_clr_eol)
+    wri_bcf.set_textpos(ssd, 0, 0)          # Write the time.
     wri_bcf.printstring(now_time)
-    Writer.set_textpos(ssd, 36, l2start)  # Position on 3rd line.
+    
+    wri_s.set_textpos(ssd, 33, 0)            # Clear line 2 to eol.
+    wri_s.printstring(s_clr_eol)
+    wri_s.set_textpos(ssd, 33, l2start)     # Write the date on line 2.
     wri_s.printstring(now_day_date+am_pm)
     ssd.show()
 
