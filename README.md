@@ -17,6 +17,6 @@ not used --> Pin(19)  # GPIO19 is Terminal pin 10, labeled D19, not used. SPI MA
 
 Required libraries:
 
-pcd8544_fb.py ([url]https://github.com/mcauser/micropython-pcd8544/blob/master/pcd8544_fb.py[/url])
+pcd8544_fb.py (https://github.com/mcauser/micropython-pcd8544/blob/master/pcd8544_fb.py)
 
-writer.py ([url]https://github.com/peterhinch/micropython-font-to-py/blob/master/writer/writer.py[/url])
+writer.py (https://github.com/peterhinch/micropython-font-to-py/blob/master/writer/writer.py)
