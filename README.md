@@ -2,7 +2,9 @@
 
 ![clock](ClockESP32Nokia5110-1.JPG)
 
-Simple clock for ESP32 &amp; Nokia 5110 written in MicroPython.  Using ESP32 DEVKIT.  This script assumes you are already connected to the Internet and pulls UTC time using ntp.  You can set a constant to provide timezone offset.  The program computes local time and sets the RTC to that time.  24-hour or 12-hour operation is selectable with another constant.  This could be done with switches.
+Simple clock for ESP32 &amp; Nokia 5110 written in MicroPython.  In this example, the ESP32 DEVKIT was used.  It's probably one of the earlier ones, so double check your pinouts.
+
+This script assumes you are already connected to the Internet and pulls UTC time using ntp.  You can set a constant to provide timezone offset.  The program computes local time and sets the RTC to that time.  24-hour or 12-hour operation is selectable with another constant.  This could be done with switches.
 
 #### Pinouts used are:
 
